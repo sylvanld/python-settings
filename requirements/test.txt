@@ -1,0 +1,7 @@
+-r dev.txt
+
+pytest
+
+# required to test extras
+pyyaml
+pydantic

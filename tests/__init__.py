@@ -1,0 +1,1 @@
+import tests.configure.logging
