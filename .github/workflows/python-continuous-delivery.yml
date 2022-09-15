@@ -1,0 +1,25 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. 
+on:
+  release:
+    types:
+      - created
+
+# Jobs triggered on workflow run.
+jobs:
+  release-package:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      
+      # Build python package, then upload it to PyPI
+      - name: Build and publish python package to pypi
+        uses: sylvanld/actions/release-pypi@main
+        with:
+          username: ${{secrets.PYPI_USERNAME}}
+          password: ${{secrets.PYPI_PASSWORD}}
